@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="spring-boot-controller-advice:war">
+    <output-path>$PROJECT_DIR$/spring-boot-controller-advice/target</output-path>
+    <root id="archive" name="spring-boot-controller-advice.war">
+      <element id="artifact" artifact-name="spring-boot-controller-advice:war exploded" />
+    </root>
+  </artifact>
+</component>

@@ -14,7 +14,7 @@
     <url>https://github.com/15001167619/spring-boot</url>
 
     <modules>
-        <module>spring-boot-controller-advice</module>
+        <module>spring-boot-aop</module>
     </modules>
 
 
