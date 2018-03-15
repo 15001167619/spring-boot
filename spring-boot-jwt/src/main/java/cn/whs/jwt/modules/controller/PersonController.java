@@ -1,6 +1,7 @@
 package cn.whs.jwt.modules.controller;
 
 import cn.whs.jwt.modules.core.BaseController;
+import cn.whs.jwt.modules.entity.Person;
 import cn.whs.jwt.modules.service.IPersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,19 +25,19 @@ public class PersonController extends BaseController {
     /**
      * 新增用户
      */
-    @RequestMapping(value = "/add")
+    @RequestMapping(value = "add")
     @ResponseBody
-    public Object add(String personName) {
-        this.personService.addPerson(personName);
+    public Object add(Integer age,String name) {
+        personService.insert(new Person(age,name));
         return SUCCESS_PROMPT;
     }
 
     /**
-     * 获取用户列表
+     * 获取全部用户列表
      */
     @RequestMapping(value = "list")
     @ResponseBody
-    public Object list(String name) {
+    public Object allList(String name) {
         return this.personService.selectByName(name);
     }
 

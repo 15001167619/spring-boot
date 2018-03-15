@@ -6,10 +6,6 @@ server:
 spring:
   profiles:
     active: dev
-  mvc:
-      static-path-pattern: /static/**
-      view:
-         prefix: /WEB-INF/view
 
 ###################  mybatis-plus配置  ###################
 mybatis-plus:
