@@ -36,7 +36,7 @@ logging:
 spring:
   profiles: dev
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/whs?serverTimezone=UTC
+    url: jdbc:mysql://127.0.0.1:3306/spring_boot?serverTimezone=UTC
     username: root
     password: 666
     db-name: whs

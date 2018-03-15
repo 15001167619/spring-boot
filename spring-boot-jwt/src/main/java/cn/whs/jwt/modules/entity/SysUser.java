@@ -10,9 +10,10 @@ import java.io.Serializable;
  * @author 武海升
  * @version 2.0
  * @description
- * @date 2018-03-15 11:46
+ * @date 2018-03-15 21:35
  */
-public class Person  extends Model {
+public class SysUser extends Model {
+
     private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
@@ -20,21 +21,17 @@ public class Person  extends Model {
     private Integer age;
     private String name;
 
-    public Integer getAge() {
-        return age;
+    public SysUser() {
     }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-
-    public Person() {
-    }
-    public Person(Integer age,String name) {
+    public SysUser(Integer age,String name) {
         this.age = age;
         this.name = name;
     }
-
+    public SysUser(Integer id,Integer age,String name) {
+        this.id = id;
+        this.age = age;
+        this.name = name;
+    }
 
     public Integer getId() {
         return id;
@@ -42,6 +39,14 @@ public class Person  extends Model {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
     }
 
     public String getName() {
@@ -56,5 +61,14 @@ public class Person  extends Model {
     @Override
     protected Serializable pkVal() {
         return this.id;
+    }
+
+    @Override
+    public String toString() {
+        return "SysUser{" +
+                "id=" + id +
+                ", age=" + age +
+                ", name='" + name + '\'' +
+                '}';
     }
 }
