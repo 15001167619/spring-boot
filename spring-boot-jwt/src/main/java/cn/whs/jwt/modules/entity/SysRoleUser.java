@@ -12,6 +12,7 @@ public class SysRoleUser {
     private Integer userId;
     private Integer roleGrade;
 
+
     public Integer getRoleId() {
         return roleId;
     }
