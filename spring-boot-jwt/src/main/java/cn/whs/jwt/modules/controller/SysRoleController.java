@@ -28,7 +28,7 @@ public class SysRoleController  extends BaseController {
     /**
      * 新增用户
      */
-    @ApiOperation(value="创建角色", notes="根据Role对象创建用户")
+    @ApiOperation(value="创建角色", notes="根据Role对象创建角色")
     @RequestMapping(value="add", method= RequestMethod.POST)
     public Object add(@RequestBody SysRole sysRole) {
         sysRoleService.insert(sysRole);
