@@ -55,9 +55,8 @@ public class SysRoleController  extends BaseController {
         if(roleId!=null||userId!=null){
             EntityWrapper<SysRoleUser> ew = new EntityWrapper<SysRoleUser>();
             ew.setEntity(new SysRoleUser());
-            ew.eq("userId",userId)
-                    .eq("roleId",roleId);
-            log.info(ew.getSqlSegment());
+            if(userId!=null)ew.eq("userId",userId);
+            if(roleId!=null)ew.eq("roleId",roleId);
             return findDataPage(sysRoleUserService.selectSysRoleUserPage(new Page<SysRoleUser>(pageNum, rows), ew));
         }
         return findDataPage(sysRoleUserService.selectSysRoleUserPage(new Page<SysRoleUser>(pageNum, rows), null));

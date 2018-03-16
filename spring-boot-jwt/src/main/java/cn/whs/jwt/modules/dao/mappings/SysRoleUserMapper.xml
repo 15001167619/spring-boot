@@ -30,7 +30,7 @@
                   where a.user_id = su.id) a,sys_role sr
                     where a.role_id = sr.id) a
                       <where>
-                          <if test="ew != null and ew != '' ">
+                          <if test="ew != null">
                               ${ew.sqlSegment}
                           </if>
                       </where>
