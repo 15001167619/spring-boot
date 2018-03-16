@@ -3,11 +3,15 @@ package cn.whs.jwt.modules.controller;
 import cn.whs.jwt.core.BaseController;
 import cn.whs.jwt.modules.entity.SysUser;
 import cn.whs.jwt.modules.service.ISysUserService;
+import com.baomidou.mybatisplus.plugins.Page;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author 武海升
@@ -28,9 +32,21 @@ public class SysUserController extends BaseController {
      */
     @ApiOperation(value="获取用户列表", notes="测试获取用户列表")
     @RequestMapping(value={""}, method=RequestMethod.GET)
-    public Object list() {
-        return sysUserService.selectList(null);
+    public Object list(@ApiParam(required = true, name = "page", value = "当前页码") @RequestParam(value = "page", defaultValue = "1") Integer pageNum,
+                       @ApiParam(required = true, name = "rows", value = "每页条数") @RequestParam(value = "rows", defaultValue = "3") Integer rows) {
+        return findDataPage(sysUserService.selectPage(new Page<SysUser>(pageNum, rows)));
     }
+
+    private <T> Map<String, Object> findDataPage(Page<T> page) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("total", page.getTotal());//总记录数
+        map.put("pages", page.getPages());//总页码数
+        map.put("current", page.getCurrent());//当前页码数
+        map.put("list", page.getRecords());//返回记录内容
+        map.put("size", page.getSize());//每页记录数
+        return map;
+    }
+
 
     /**
      * 新增用户
