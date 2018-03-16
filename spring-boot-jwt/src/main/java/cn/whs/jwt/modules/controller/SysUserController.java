@@ -48,17 +48,6 @@ public class SysUserController extends BaseController {
         return findDataPage(sysUserService.selectPage(new Page<SysUser>(pageNum, rows)));
     }
 
-    private <T> Map<String, Object> findDataPage(Page<T> page) {
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("total", page.getTotal());//总记录数
-        map.put("pages", page.getPages());//总页码数
-        map.put("current", page.getCurrent());//当前页码数
-        map.put("list", page.getRecords());//返回记录内容
-        map.put("size", page.getSize());//每页记录数
-        return map;
-    }
-
-
     /**
      * 新增用户
      */

@@ -12,6 +12,33 @@ public class SysRoleUser {
     private Integer userId;
     private Integer roleGrade;
 
+    private Integer age;
+    private String name;
+    private String roleName;
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getRoleName() {
+        return roleName;
+    }
+
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
+    }
 
     public Integer getRoleId() {
         return roleId;

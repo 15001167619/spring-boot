@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.whs.jwt.modules.dao.SysRoleUserMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.whs.jwt.modules.entity.SysRoleUser">
+        <result column="role_name" property="roleName" />
+        <result column="role_id" property="roleId" />
+        <result column="user_id" property="userId" />
+        <result column="role_grade" property="roleGrade" />
+        <result column="age" property="age" />
+        <result column="name" property="name" />
+        <result column="del_flag" property="delFlag" />
+    </resultMap>
+
+    <sql id="sysRoleUserResult">
+        a.role_id as roleId,
+        a.user_id as userId,
+        a.role_grade as roleGrade,
+        a.age,
+        a.name
+    </sql>
+
+    <select id="findSysRoleUserList" resultType="SysRoleUser">
+        select * from (
+          select <include refid="sysRoleUserResult"/>,
+            sr.role_name as roleName from (
+              select a.*,su.age,su.name from
+                sys_role_user a ,sys_user su
+                  where a.user_id = su.id) a,sys_role sr
+                    where a.role_id = sr.id) a
+                      <where>
+                          <if test="ew != null and ew != '' ">
+                              ${ew.sqlSegment}
+                          </if>
+                      </where>
+    </select>
+
+</mapper>
