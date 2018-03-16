@@ -1,4 +1,4 @@
-package cn.whs.jwt.modules.core;
+package cn.whs.jwt.core;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

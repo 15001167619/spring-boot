@@ -1,4 +1,4 @@
-package cn.whs.jwt.modules.core;
+package cn.whs.jwt.core;
 
 /**
  * @author 武海升

@@ -1,4 +1,4 @@
-package cn.whs.jwt.modules.core.config;
+package cn.whs.jwt.core.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.baomidou.mybatisplus.plugins.PaginationInterceptor;

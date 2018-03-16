@@ -1,4 +1,4 @@
-package cn.whs.jwt.modules.core;
+package cn.whs.jwt.core;
 
 /**
  * @author 武海升
@@ -6,7 +6,7 @@ package cn.whs.jwt.modules.core;
  * @description
  * @date 2018-03-15 13:48
  */
-public class SuccessPrompt extends Prompt{
+public class SuccessPrompt extends Prompt {
 
     public SuccessPrompt(){
         super.code = 200;
