@@ -7,6 +7,9 @@ spring:
   profiles:
     active: dev
 
+#####################################################################
+########################  swagger2 开启开关  ##########################
+#####################################################################
 swagger:
   enable: true # 是否开启 swagger 调试  true 开启，false 关闭
 
@@ -27,10 +30,6 @@ mybatis-plus:
     lazyLoadingEnabled: true #延时加载的开关
     multipleResultSetsEnabled: true #开启的话，延时加载一个属性时会加载该对象全部属性，否则按需加载属性
 
-logging:
-  level:
-    org.springframework.web.servlet: ERROR
-
 ---
 
 #####################################################################
@@ -45,11 +44,13 @@ spring:
     db-name: whs
     filters: log4j,wall,mergeStat
 
+#####################################################################
+########################  写入日志  ##########################
+#####################################################################
+
 logging:
-  level:
-    ROOT: INFO
-    com:
-      xncoding: DEBUG
-  file: E:/logs/jwt.log
+  level.root: info
+  level.cn.whs.jwt: debug
+  file: G:/mylog/spring-boot.log
 
 
