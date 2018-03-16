@@ -6,7 +6,7 @@ package cn.whs.jwt.modules.entity;
  * @description
  * @date 2018-03-16 17:53
  */
-public class sysRoleUser {
+public class SysRoleUser {
 
     private Integer roleId;
     private Integer userId;
