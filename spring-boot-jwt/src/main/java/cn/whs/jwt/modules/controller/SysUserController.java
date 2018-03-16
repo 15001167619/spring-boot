@@ -3,6 +3,8 @@ package cn.whs.jwt.modules.controller;
 import cn.whs.jwt.core.BaseController;
 import cn.whs.jwt.modules.entity.SysUser;
 import cn.whs.jwt.modules.service.ISysUserService;
+import cn.whs.jwt.utils.StringUtil;
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -33,7 +35,16 @@ public class SysUserController extends BaseController {
     @ApiOperation(value="获取用户列表", notes="测试获取用户列表")
     @RequestMapping(value={""}, method=RequestMethod.GET)
     public Object list(@ApiParam(required = true, name = "page", value = "当前页码") @RequestParam(value = "page", defaultValue = "1") Integer pageNum,
-                       @ApiParam(required = true, name = "rows", value = "每页条数") @RequestParam(value = "rows", defaultValue = "3") Integer rows) {
+                       @ApiParam(required = true, name = "rows", value = "每页条数") @RequestParam(value = "rows", defaultValue = "3") Integer rows,
+                       @ApiParam(required = false, name = "age", value = "年龄") @RequestParam(value = "age", required = false) Integer age,
+                       @ApiParam(required = false, name = "name", value = "姓名") @RequestParam(value = "name", required = false) String name) {
+        if(StringUtil.isNotBlank(name)||age!=null){
+            EntityWrapper<SysUser> ew = new EntityWrapper<SysUser>();
+            ew.setEntity(new SysUser());
+            ew.where("age<{0}",age)
+                    .like("name",name).orderBy("age");
+            return findDataPage(sysUserService.selectPage(new Page<SysUser>(pageNum, rows), ew));
+        }
         return findDataPage(sysUserService.selectPage(new Page<SysUser>(pageNum, rows)));
     }
 
