@@ -3,9 +3,8 @@ package cn.whs.jwt.modules.controller;
 import cn.whs.jwt.core.BaseController;
 import cn.whs.jwt.modules.entity.SysUser;
 import cn.whs.jwt.modules.service.ISysUserService;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping("user")
-@Slf4j  //https://www.cnblogs.com/weiapro/p/7633645.html
+@Slf4j
 public class SysUserController extends BaseController {
 
     @Autowired
@@ -27,8 +26,8 @@ public class SysUserController extends BaseController {
     /**
      * 获取用户列表
      */
-    @ApiOperation(value="获取用户列表", notes="获取全部用户列表")
-    @RequestMapping(value = "list")
+    @ApiOperation(value="获取用户列表", notes="测试获取用户列表")
+    @RequestMapping(value={""}, method=RequestMethod.GET)
     public Object list() {
         return sysUserService.selectList(null);
     }
@@ -36,36 +35,39 @@ public class SysUserController extends BaseController {
     /**
      * 新增用户
      */
-    @ApiOperation(value="新增用户", notes="根据url的id来指定更新对象，并根据传过来的user信息来更新用户详细信息")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "age", value = "用户年龄", required = true, dataType = "Integer"),
-            @ApiImplicitParam(name = "name", value = "用户姓名", required = true, dataType = "String")
-    })
-    @RequestMapping(value = "add")
-    public Object add(Integer age,String name) {
-        log.debug("参数 age："+age+"; name"+name);
-        sysUserService.insert(new SysUser(age,name));
+    @ApiOperation(value="创建用户", notes="根据User对象创建用户")
+    @RequestMapping(value="add", method=RequestMethod.POST)
+    public Object add(@RequestBody SysUser sysUser) {
+        log.info("参数 sysUser："+sysUser);
+        sysUserService.insert(sysUser);
         return SUCCESS_PROMPT;
     }
 
+    @ApiOperation(value="获取用户详细信息", notes="根据用户id来获取用户详细信息")
+    @RequestMapping(value="/{id}", method=RequestMethod.GET)
+    public SysUser getUser(@ApiParam(required = true, name = "id", value = "用户ID") @RequestParam(value = "id", required = true) Integer id) {
+        return sysUserService.selectById(id);
+    }
+
+    /**
+     * 更新用户
+     */
+    @ApiOperation(value="更新用户详细信息", notes="根据url的id来指定更新对象，并根据传过来的user信息来更新用户详细信息")
+    @RequestMapping(value="/{id}", method=RequestMethod.PUT)
+    public Object putUser(@ApiParam(required = true, name = "id", value = "用户ID") @RequestParam(value = "id", required = true) Integer id, @RequestBody SysUser user) {
+        SysUser sysUser = sysUserService.selectById(id);
+        sysUser.setName(user.getName());
+        sysUser.setAge(user.getAge());
+        sysUserService.updateById(sysUser);
+        return SUCCESS_PROMPT;
+    }
     /**
      * 删除用户
      */
-    @ApiOperation(value="删除用户", notes="根据url的id来指定删除对象")
-    @ApiImplicitParam(name = "sysUserId", value = "用户ID", required = true, dataType = "Integer")
-    @RequestMapping(value="/{sysUserId}", method= RequestMethod.DELETE)
-    public Object delete(@RequestParam Integer sysUserId) {
-        sysUserService.deleteById(sysUserId);
-        return SUCCESS_PROMPT;
-    }
-
-    /**
-     * 修改测试
-     */
-    @RequestMapping(value = "update")
-    @ResponseBody
-    public Object update(Integer id,Integer age,String name) {
-        sysUserService.updateById(new SysUser(id,age,name));
+    @ApiOperation(value="删除用户", notes="根据用户id来指定删除对象")
+    @RequestMapping(value="/{id}", method=RequestMethod.DELETE)
+    public Object delete(@ApiParam(required = true, name = "id", value = "用户ID") @RequestParam(value = "id", required = true) Integer id) {
+        sysUserService.deleteById(id);
         return SUCCESS_PROMPT;
     }
 }

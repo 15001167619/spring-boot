@@ -1,5 +1,7 @@
 package cn.whs.jwt.core.config;
 
+import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -23,21 +25,28 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
+
+    @Value("${swagger.enable}")
+    private boolean enableSwagger;
+
     @Bean
     public Docket createRestApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
+                .enable(enableSwagger) //是否开启
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("cn.whs.jwt.modules.controller"))
+                .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))
+                // .apis(RequestHandlerSelectors.basePackage("cn.whs.jwt.modules.controller"))
                 .paths(PathSelectors.any())
                 .build();
     }
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("Spring Boot中使用Swagger2构建RESTful APIs")
+                .title("Spring Boot 使用Swagger2构建RESTful API")
                 .description("Swagger API 接口文档")
-                .contact("程序猿")
+                .termsOfServiceUrl("https://github.com/15001167619")
+                .contact("慕小谦")
                 .version("1.0")
                 .build();
     }
