@@ -10,4 +10,9 @@ import com.baomidou.mybatisplus.service.IService;
  * @date 2018-03-15 21:39
  */
 public interface ISysUserService  extends IService<SysUser> {
+
+    /**
+     * 添加用户
+     */
+    void updateSysUser(SysUser sysUser);
 }

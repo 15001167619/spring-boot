@@ -11,10 +11,6 @@ import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * @author 武海升
  * @version 2.0
@@ -56,6 +52,13 @@ public class SysUserController extends BaseController {
     public Object add(@RequestBody SysUser sysUser) {
         log.info("参数 sysUser："+sysUser);
         sysUserService.insert(sysUser);
+        return SUCCESS_PROMPT;
+    }
+
+    @ApiOperation(value="事物更新用户", notes="具有事物级别的更新用户")
+    @RequestMapping(value="updateSysUser", method=RequestMethod.POST)
+    public Object updateSysUser(@RequestBody SysUser sysUser) {
+        sysUserService.updateSysUser(sysUser);
         return SUCCESS_PROMPT;
     }
 

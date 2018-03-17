@@ -18,6 +18,7 @@ public enum ExceptionEnum  implements ServiceExceptionEnum{
      * 具体业务  eg：用户sysUser
      */
     TEST(250,"TipsRuntimeException 第二种展示方式"),
+    TEST_TRANSACTIONAL(500,"Transactional 事物"),
     USER_ALREADY_REG(401,"该用户已经注册"),
     USER_NOT_EXISTED(400, "没有此用户");
 
