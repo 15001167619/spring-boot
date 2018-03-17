@@ -10,19 +10,24 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_user`;
 CREATE TABLE `sys_user` (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键id',
-  `age` int(11) DEFAULT NULL COMMENT '年龄',
-  `name` varchar(255) DEFAULT NULL COMMENT '姓名',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COMMENT='用户表';
+	`id` INT(11) NOT NULL AUTO_INCREMENT COMMENT '主键id',
+	`age` INT(11) NULL COMMENT '年龄',
+	`name` VARCHAR(255) NULL COMMENT '姓名',
+	`mobile` VARCHAR(11) NULL COMMENT '手机号',
+	`password` VARCHAR(64) NULL DEFAULT NULL COMMENT '密码',
+	PRIMARY KEY (`id`),
+	UNIQUE INDEX `mobile` (`mobile`)
+)
+COMMENT='用户表'
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB;
 
 
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
-
-INSERT INTO `sys_user` VALUES ('1', '20', '武海升');
-INSERT INTO `sys_user` VALUES ('2', '23', '慕小谦');
+INSERT INTO `sys_user` (`age`, `name`, `mobile`, `password`) VALUES (18, '武海升', '15001167619', '666');
+INSERT INTO `sys_user` (`age`, `name`, `mobile`, `password`) VALUES (20, '慕小谦', '15001167609', '666');
 
 
 DROP TABLE IF EXISTS `sys_role`;

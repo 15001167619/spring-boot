@@ -16,7 +16,6 @@ import java.util.List;
  */
 public interface SysRoleUserMapper extends BaseMapper<SysRoleUser> {
 
-    //@Select("selectRoleUserPage")
     List<SysRoleUser> findSysRoleUserList(Pagination page, @Param("ew") Wrapper<SysRoleUser> wrapper);
 
 

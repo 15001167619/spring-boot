@@ -10,7 +10,6 @@
         <result column="role_grade" property="roleGrade" />
         <result column="age" property="age" />
         <result column="name" property="name" />
-        <result column="del_flag" property="delFlag" />
     </resultMap>
 
     <sql id="sysRoleUserResult">
@@ -21,7 +20,7 @@
         a.name
     </sql>
 
-    <select id="findSysRoleUserList" resultType="SysRoleUser">
+    <select id="findSysRoleUserList" resultType="cn.whs.jwt.modules.entity.SysRoleUser">
         select * from (
           select <include refid="sysRoleUserResult"/>,
             sr.role_name as roleName from (

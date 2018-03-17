@@ -9,6 +9,23 @@ package cn.whs.jwt.core.exception;
 public enum ExceptionEnum  implements ServiceExceptionEnum{
 
     /**
+     * token异常
+     */
+    TOKEN_EXPIRED(700, "token过期"),
+    TOKEN_ERROR(700, "token验证失败"),
+
+    /**
+     * 签名异常
+     */
+    SIGN_ERROR(700, "签名验证失败"),
+
+    /**
+     * 其他
+     */
+    WRITE_ERROR(500,"渲染界面错误"),
+    AUTH_REQUEST_ERROR(400, "账号密码错误"),
+
+    /**
      * 错误的请求
      */
     REQUEST_NULL(400, "请求有错误"),
@@ -18,9 +35,7 @@ public enum ExceptionEnum  implements ServiceExceptionEnum{
      * 具体业务  eg：用户sysUser
      */
     TEST(250,"TipsRuntimeException 第二种展示方式"),
-    TEST_TRANSACTIONAL(500,"Transactional 事物"),
-    USER_ALREADY_REG(401,"该用户已经注册"),
-    USER_NOT_EXISTED(400, "没有此用户");
+    TEST_TRANSACTIONAL(500,"Transactional 事物");
 
 
     ExceptionEnum(int code, String message) {

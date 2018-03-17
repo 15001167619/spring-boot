@@ -5,7 +5,6 @@ import cn.whs.jwt.modules.entity.SysRole;
 import cn.whs.jwt.modules.entity.SysRoleUser;
 import cn.whs.jwt.modules.service.ISysRoleService;
 import cn.whs.jwt.modules.service.ISysRoleUserService;
-import cn.whs.jwt.utils.StringUtil;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import io.swagger.annotations.ApiOperation;
@@ -13,8 +12,6 @@ import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 /**
  * @author 武海升

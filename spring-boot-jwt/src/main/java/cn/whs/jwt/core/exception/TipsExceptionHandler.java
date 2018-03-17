@@ -1,5 +1,7 @@
 package cn.whs.jwt.core.exception;
 
+import cn.whs.jwt.core.ErrorPrompt;
+import io.jsonwebtoken.JwtException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,7 +19,7 @@ import java.util.Map;
  * @date 2018-03-17 10:33
  */
 @RestControllerAdvice
-public class TipsExceptionHandler {
+public class TipsExceptionHandler  extends BaseControllerExceptionHandler {
 
     /**
      * 通过注解拦截异常  ExceptionHandler @ExceptionHandler(TipsException.class)
@@ -29,15 +31,17 @@ public class TipsExceptionHandler {
     public Map<String, Object> handlerTipsException(TipsException ex) {
         Map<String,Object> result = new HashMap<>();
         result.put("message", ex.getMessage());
-        result.put("error type", "TipsException 第一种展示方式");
+        result.put("error type", "TipsException");
         return result;
     }
 
-
+    /**
+     * 注意： TipsRuntimeException 与  JwtException 均为运行时异常  不能同时存在
+     */
 
     /**
      * 自定义枚举异常
-     */
+     *//*
     @ExceptionHandler(TipsRuntimeException.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public Map<String, Object> handlerMyRuntimeException(TipsRuntimeException ex) {
@@ -45,6 +49,16 @@ public class TipsExceptionHandler {
         result.put("code", ex.getCode());
         result.put("message", ex.getMessage());
         return result;
+    }*/
+
+    /**
+     * 拦截jwt相关异常
+     */
+    @ExceptionHandler(JwtException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ResponseBody
+    public ErrorPrompt jwtException(JwtException e) {
+        return new ErrorPrompt(ExceptionEnum.TOKEN_ERROR.getCode(), ExceptionEnum.TOKEN_ERROR.getMessage());
     }
 
 }

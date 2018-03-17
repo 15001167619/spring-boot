@@ -3,7 +3,7 @@ package cn.whs.jwt.modules.controller;
 import cn.whs.jwt.core.BaseController;
 import cn.whs.jwt.modules.entity.SysUser;
 import cn.whs.jwt.modules.service.ISysUserService;
-import cn.whs.jwt.utils.StringUtil;
+import cn.whs.jwt.utils.CommonUtils;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import io.swagger.annotations.ApiOperation;
@@ -34,7 +34,7 @@ public class SysUserController extends BaseController {
                        @ApiParam(required = true, name = "rows", value = "每页条数") @RequestParam(value = "rows", defaultValue = "3") Integer rows,
                        @ApiParam(required = false, name = "age", value = "年龄") @RequestParam(value = "age", required = false) Integer age,
                        @ApiParam(required = false, name = "name", value = "姓名") @RequestParam(value = "name", required = false) String name) {
-        if(StringUtil.isNotBlank(name)||age!=null){
+        if(CommonUtils.isNotBlank(name)||age!=null){
             EntityWrapper<SysUser> ew = new EntityWrapper<SysUser>();
             ew.setEntity(new SysUser());
             ew.where("age<{0}",age)
