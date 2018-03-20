@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
  * @author 武海升
  * @version 2.0
  * @description  jwt 配置
+ * @ConfigurationProperties  注解http://blog.csdn.net/qq_26000415/article/details/78942494
  * @date 2018-03-17 14:58
  */
 @Configuration
@@ -19,7 +20,7 @@ public class JwtProperties {
 
     private String secret = "defaultSecret";
 
-    private Long expiration = 604800L;
+    private Long expiration = 100L;
 
     private String authPath = "auth";
 

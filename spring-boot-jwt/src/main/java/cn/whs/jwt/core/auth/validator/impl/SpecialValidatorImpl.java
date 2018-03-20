@@ -2,6 +2,7 @@ package cn.whs.jwt.core.auth.validator.impl;
 
 import cn.whs.jwt.core.auth.validator.IReqValidator;
 import cn.whs.jwt.core.auth.validator.dto.Credence;
+import org.springframework.stereotype.Service;
 
 /**
  * @author 武海升
@@ -10,6 +11,7 @@ import cn.whs.jwt.core.auth.validator.dto.Credence;
  *      用于特殊的账号免校验
  * @date 2018-03-17 15:39
  */
+@Service
 public class SpecialValidatorImpl implements IReqValidator {
 
     private static String USER_NAME = "admin";
