@@ -50,6 +50,12 @@ public class SysUser extends Model {
         this.age = age;
         this.name = name;
     }
+    public SysUser(Integer age,String name,String mobile,String password) {
+        this.age = age;
+        this.name = name;
+        this.mobile = mobile;
+        this.password = password;
+    }
 
     public Integer getId() {
         return id;

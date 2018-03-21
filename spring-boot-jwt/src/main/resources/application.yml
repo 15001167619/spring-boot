@@ -52,8 +52,17 @@ spring:
     url: jdbc:mysql://127.0.0.1:3306/spring_boot?serverTimezone=UTC
     username: root
     password: 666
-    db-name: whs
+    db-name: spring_boot
     filters: log4j,wall,mergeStat
+    redis:
+        host: 127.0.0.1
+        #password: redispassword
+        port: 6379
+        pool:
+          max-idle: 100
+          min-idle: 1
+          max-active: 1000
+          max-wait: -1
 
 #####################################################################
 ########################  写入日志  ##########################
