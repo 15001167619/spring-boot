@@ -50,8 +50,8 @@ public class SysUserController extends BaseController {
     @ApiOperation(value="创建用户", notes="根据User对象创建用户")
     @RequestMapping(value="auth/add", method=RequestMethod.POST)
     public Object add(@RequestBody SysUser sysUser,
-                      @ApiParam(required = true, name = "rows", value = "每页条数") @RequestParam(value = "rows", defaultValue = "3") String token) {
-        log.info("参数 Token："+token);
+                      @ApiParam(required = true, name = "authToken", value = "Token令牌") @RequestParam(value = "authToken") String authToken) {
+        log.info("参数 token："+authToken);
         log.info("参数 sysUser："+sysUser);
         sysUserService.insert(sysUser);
         return SUCCESS_PROMPT;
