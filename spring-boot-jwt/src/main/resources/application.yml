@@ -30,8 +30,17 @@ swagger:
 specialValidator:
   enable: true # 是否开启 特殊校验 调试  true 开启，false 关闭
 
+#####################################################################
+########################  多数据源 开启开关  ##########################
+#####################################################################
 xncoding:
-  muti-datasource-open: true #是否开启多数据源(true/false)
+  muti-datasource-open: false #是否开启多数据源(true/false)
+
+#####################################################################
+########################  定时任务 开启开关  ##########################
+#####################################################################
+timedTask:
+  job-cheduleConfig-open: false #是否开启定时任务(true/false)
 
 ###################  mybatis-plus配置  ###################
 mybatis-plus:
@@ -65,7 +74,7 @@ spring:
     filters: log4j,wall,mergeStat
     redis:
         host: 127.0.0.1
-        #password: redispassword
+        password: 666
         port: 6379
         pool:
           max-idle: 100

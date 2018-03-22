@@ -1,5 +1,7 @@
 package cn.whs.jwt.core.config;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -17,6 +19,7 @@ import java.util.concurrent.Executors;
  */
 @Configuration
 @EnableScheduling
+@ConditionalOnProperty(prefix = "timedTask", name = "job-cheduleConfig-open", havingValue = "true")
 public class ScheduleConfig  implements SchedulingConfigurer {
     @Override
     public void configureTasks(ScheduledTaskRegistrar scheduledTaskRegistrar) {
