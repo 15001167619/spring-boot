@@ -4,12 +4,10 @@ import cn.whs.jwt.core.auth.validator.IReqValidator;
 import cn.whs.jwt.core.auth.validator.dto.Credence;
 import cn.whs.jwt.modules.dao.SysUserMapper;
 import cn.whs.jwt.modules.entity.SysUser;
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import cn.whs.jwt.utils.MD5Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 /**
  * @author 武海升
@@ -32,8 +30,12 @@ public class ReqValidatorImpl implements IReqValidator {
         if (enableValidator && ("666".equals(credence.getCredenceUniqueName()) && "888".equals(credence.getCredenceCode()))) {
             return true;
         } else {
-            List<SysUser> sysUsers = userMapper.selectList(new EntityWrapper<SysUser>().eq("mobile", credence.getCredenceUniqueName()).eq("password", credence.getCredenceCode()));
-            return (sysUsers != null && sysUsers.size() > 0)?true:false;
+            SysUser sysUser = userMapper.getByMobile(credence.getCredenceUniqueName());
+            if(sysUser!=null&&(sysUser.getPassword().equals(MD5Util.md5(credence.getCredenceCode(), sysUser.getSalt())))){
+                return true;
+            }else{
+                return false;
+            }
         }
     }
 }

@@ -22,6 +22,15 @@ public class SysUser extends Model {
     private String name;
     private String mobile;
     private String password;
+    private String salt;
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
+    }
 
     public String getMobile() {
         return mobile;

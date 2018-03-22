@@ -1,9 +1,12 @@
 package cn.whs.jwt.modules.controller;
 
 import cn.whs.jwt.core.BaseController;
+import cn.whs.jwt.core.exception.ExceptionEnum;
+import cn.whs.jwt.core.exception.TipsRuntimeException;
 import cn.whs.jwt.modules.entity.SysUser;
 import cn.whs.jwt.modules.service.ISysUserService;
 import cn.whs.jwt.utils.CommonUtils;
+import cn.whs.jwt.utils.MD5Util;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import io.swagger.annotations.ApiOperation;
@@ -53,8 +56,30 @@ public class SysUserController extends BaseController {
                       @ApiParam(required = true, name = "authToken", value = "Token令牌") @RequestParam(value = "authToken") String authToken) {
         log.info("参数 token："+authToken);
         log.info("参数 sysUser："+sysUser);
+        sysUser.setSalt(CommonUtils.getRandomString(5));
+        sysUser.setPassword(MD5Util.md5(sysUser.getPassword(), sysUser.getSalt()));
         sysUserService.insert(sysUser);
         return SUCCESS_PROMPT;
+    }
+
+    /**
+     * 修改当前用户的密码
+     */
+    @ApiOperation(value="修改用户密码", notes="修改用户密码")
+    @RequestMapping(value="changePwd", method=RequestMethod.POST)
+    public Object changePwd(@ApiParam(required = true, name = "userId", value = "用户ID") @RequestParam(value = "userId") Integer userId,
+                            @ApiParam(required = true, name = "oldPwd", value = "旧密码") @RequestParam(value = "oldPwd") String oldPwd,
+                            @ApiParam(required = true, name = "newPwd", value = "新密码") @RequestParam(value = "newPwd") String newPwd) {
+        SysUser sysUser = sysUserService.selectById(userId);
+        String oldMd5 = MD5Util.md5(oldPwd, sysUser.getSalt());
+        if (sysUser.getPassword().equals(oldMd5)) {
+            String newMd5 = MD5Util.md5(newPwd, sysUser.getSalt());
+            sysUser.setPassword(newMd5);
+            sysUser.updateById();
+            return SUCCESS_PROMPT;
+        } else {
+            throw new TipsRuntimeException(ExceptionEnum.OLD_PWD_NOT_RIGHT);
+        }
     }
 
     @ApiOperation(value="事物更新用户", notes="具有事物级别的更新用户")

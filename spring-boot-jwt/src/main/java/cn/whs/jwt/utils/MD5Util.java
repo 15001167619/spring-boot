@@ -1,5 +1,9 @@
 package cn.whs.jwt.utils;
 
+import org.apache.shiro.crypto.hash.Md5Hash;
+import org.apache.shiro.crypto.hash.SimpleHash;
+import org.apache.shiro.util.ByteSource;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -7,6 +11,15 @@ import java.security.NoSuchAlgorithmException;
  * MD5加密类（封装jdk自带的md5加密方法）
  */
 public class MD5Util {
+
+    /**
+     * 加盐参数
+     */
+    public final static String hashAlgorithmName = "MD5";
+    /**
+     * 循环次数
+     */
+    public final static int hashIterations = 1024;
 
     public static String encrypt(String source) {
         return encodeMd5(source.getBytes());
@@ -30,7 +43,17 @@ public class MD5Util {
         return buffer.toString();
     }
 
-    public static void main(String[] args) {
-        System.out.println(encrypt("123456"));
+    /**
+     * shiro密码加密工具类
+     *
+     * @param credentials 密码
+     * @param saltSource 密码盐
+     * @return
+     */
+    public static String md5(String credentials, String saltSource) {
+        ByteSource salt = new Md5Hash(saltSource);
+        return new SimpleHash(hashAlgorithmName, credentials, salt, hashIterations).toString();
     }
+
+
 }
