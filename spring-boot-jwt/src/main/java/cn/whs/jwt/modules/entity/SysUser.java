@@ -97,6 +97,8 @@ public class SysUser extends Model {
                 "id=" + id +
                 ", age=" + age +
                 ", name='" + name + '\'' +
+                ", mobile='" + mobile + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
 }
