@@ -41,6 +41,10 @@ public class SysUser extends Model {
 
     public SysUser() {
     }
+    public SysUser(String mobile,String name) {
+        this.mobile = mobile;
+        this.name = name;
+    }
     public SysUser(Integer age,String name) {
         this.age = age;
         this.name = name;

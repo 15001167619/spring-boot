@@ -24,6 +24,12 @@ spring:
 swagger:
   enable: true # 是否开启 swagger 调试  true 开启，false 关闭
 
+#####################################################################
+########################  特殊校验开启开关  ##########################
+#####################################################################
+specialValidator:
+  enable: true # 是否开启 特殊校验 调试  true 开启，false 关闭
+
 ###################  mybatis-plus配置  ###################
 mybatis-plus:
   mapper-locations: classpath*:cn/whs/jwt/modules/dao/mappings/*.xml

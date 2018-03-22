@@ -11,15 +11,15 @@ import cn.whs.jwt.core.auth.validator.dto.Credence;
  */
 public class AuthRequestImpl  implements Credence {
 
-    private String userName;
+    private String mobile;
     private String password;
 
-    public String getUserName() {
-        return userName;
+    public String getMobile() {
+        return mobile;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
     }
 
     public String getPassword() {
@@ -31,8 +31,8 @@ public class AuthRequestImpl  implements Credence {
     }
 
     @Override
-    public String getCredenceName() {
-        return this.userName;
+    public String getCredenceUniqueName() {
+        return this.mobile;
     }
 
     @Override

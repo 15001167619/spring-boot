@@ -20,21 +20,21 @@ public class AuthResponseImpl implements Serializable {
     private final String token;
 
     /**
-     * 用于客户端混淆md5加密
+     * 签名
      */
-    private final String randomKey;
+    private final String sign;
 
-    public AuthResponseImpl(String token, String randomKey) {
+    public AuthResponseImpl(String token, String sign) {
         this.token = token;
-        this.randomKey = randomKey;
+        this.sign = sign;
     }
 
     public String getToken() {
         return this.token;
     }
 
-    public String getRandomKey() {
-        return randomKey;
+    public String getSign() {
+        return sign;
     }
 
 }

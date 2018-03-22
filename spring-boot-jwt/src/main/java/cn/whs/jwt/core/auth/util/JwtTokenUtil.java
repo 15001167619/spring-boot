@@ -1,7 +1,11 @@
 package cn.whs.jwt.core.auth.util;
 
+import cn.whs.jwt.core.auth.validator.dto.Credence;
 import cn.whs.jwt.core.config.properties.JwtProperties;
+import cn.whs.jwt.modules.entity.SysUser;
 import cn.whs.jwt.utils.CommonUtils;
+import cn.whs.jwt.utils.MD5Util;
+import com.alibaba.fastjson.JSON;
 import io.jsonwebtoken.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -114,6 +118,15 @@ public class JwtTokenUtil {
         Map<String, Object> claims = new HashMap<>();
         claims.put(jwtProperties.getMd5Key(), randomKey);
         return doGenerateToken(claims, userName);
+    }
+
+    /**
+     * 生成签名sign (通过用户信息和签名时候用的随机数)
+     */
+    public String generateSign(Credence credence, String randomKey) {
+        String json = JSON.toJSONString(new SysUser(credence.getCredenceUniqueName(),credence.getCredenceCode()));
+        //md5签名
+        return MD5Util.encrypt(json + randomKey);
     }
 
     /**

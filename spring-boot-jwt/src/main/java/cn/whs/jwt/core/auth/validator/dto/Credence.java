@@ -10,9 +10,9 @@ package cn.whs.jwt.core.auth.validator.dto;
 public interface Credence {
 
     /**
-     * 凭据名称
+     * 唯一凭证
      */
-    String getCredenceName();
+    String getCredenceUniqueName();
 
     /**
      * 密码或者是其他的验证码之类的
