@@ -30,6 +30,9 @@ swagger:
 specialValidator:
   enable: true # 是否开启 特殊校验 调试  true 开启，false 关闭
 
+xncoding:
+  muti-datasource-open: true #是否开启多数据源(true/false)
+
 ###################  mybatis-plus配置  ###################
 mybatis-plus:
   mapper-locations: classpath*:cn/whs/jwt/modules/dao/mappings/*.xml
@@ -69,6 +72,13 @@ spring:
           min-idle: 1
           max-active: 1000
           max-wait: -1
+
+#多数据源
+biz:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/spring_boot_biz?serverTimezone=UTC
+    username: root
+    password: 666
 
 #####################################################################
 ########################  写入日志  ##########################

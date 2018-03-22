@@ -68,3 +68,6 @@ INSERT INTO `sys_role_user`  VALUES (1, 1, 2);
 INSERT INTO `sys_role_user`  VALUES (1, 2, 5);
 INSERT INTO `sys_role_user`  VALUES (3, 1, 7);
 INSERT INTO `sys_role_user`  VALUES (4, 1, 7);
+
+DROP DATABASE IF EXISTS spring_boot_biz;
+CREATE DATABASE IF NOT EXISTS spring_boot_biz DEFAULT CHARSET utf8 COLLATE utf8_general_ci;

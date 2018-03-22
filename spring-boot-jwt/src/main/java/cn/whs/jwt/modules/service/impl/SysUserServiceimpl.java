@@ -1,5 +1,7 @@
 package cn.whs.jwt.modules.service.impl;
 
+import cn.whs.jwt.core.config.mutidatasource.DbEnum;
+import cn.whs.jwt.core.config.mutidatasource.annotion.DataSource;
 import cn.whs.jwt.core.exception.TipsRuntimeException;
 import cn.whs.jwt.modules.dao.SysUserMapper;
 import cn.whs.jwt.modules.entity.SysUser;
@@ -31,5 +33,11 @@ public class SysUserServiceimpl extends ServiceImpl<SysUserMapper, SysUser> impl
         this.sysUserMapper.updateById(sysUser);
         //添加异常
         throw new TipsRuntimeException(TEST_TRANSACTIONAL);
+    }
+
+    @Override
+    @DataSource(name = DbEnum.DATA_SOURCE_BIZ)
+    public SysUser findSysUserId(Integer id) {
+        return sysUserMapper.selectById(id);
     }
 }

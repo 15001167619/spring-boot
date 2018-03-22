@@ -15,4 +15,6 @@ public interface ISysUserService  extends IService<SysUser> {
      * 添加用户
      */
     void updateSysUser(SysUser sysUser);
+
+    SysUser findSysUserId(Integer id);
 }
