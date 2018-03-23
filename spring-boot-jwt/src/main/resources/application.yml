@@ -81,7 +81,9 @@ spring:
           min-idle: 1
           max-active: 1000
           max-wait: -1
-
+  data:
+      mongodb:
+        uri: mongodb://whs:pwd66@localhost:27017/spring_boot
 #多数据源
 biz:
   datasource:
