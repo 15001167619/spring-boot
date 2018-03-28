@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.whs.db.modules.two.dao.TwoUserMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.whs.db.modules.two.entity.TwoUser">
+        <id column="id" property="id" />
+        <result column="age" property="age" />
+        <result column="name" property="name" />
+        <result column="mobile" property="mobile" />
+        <result column="password" property="password" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, age,name,mobile,password
+    </sql>
+</mapper>
