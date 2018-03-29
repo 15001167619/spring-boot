@@ -3,6 +3,8 @@ package cn.whs.jwt.modules.entity;
 import com.baomidou.mybatisplus.activerecord.Model;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.enums.IdType;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
 
@@ -12,6 +14,8 @@ import java.io.Serializable;
  * @description
  * @date 2018-03-15 21:35
  */
+@EqualsAndHashCode(callSuper = false)
+@Data
 public class SysUser extends Model {
 
     private static final long serialVersionUID = 1L;
@@ -24,29 +28,6 @@ public class SysUser extends Model {
     private String password;
     private String salt;
 
-    public String getSalt() {
-        return salt;
-    }
-
-    public void setSalt(String salt) {
-        this.salt = salt;
-    }
-
-    public String getMobile() {
-        return mobile;
-    }
-
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
     public SysUser() {
     }
@@ -69,31 +50,6 @@ public class SysUser extends Model {
         this.mobile = mobile;
         this.password = password;
     }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
 
     @Override
     protected Serializable pkVal() {
