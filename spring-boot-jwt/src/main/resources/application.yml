@@ -67,7 +67,7 @@ mybatis-plus:
 spring:
   profiles: dev
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/spring_boot?serverTimezone=UTC
+    url: jdbc:mysql://127.0.0.1:3306/spring_boot?serverTimezone=Asia/Shanghai
     username: root
     password: 666
     db-name: spring_boot
@@ -87,7 +87,7 @@ spring:
 #多数据源
 biz:
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/spring_boot_biz?serverTimezone=UTC
+    url: jdbc:mysql://127.0.0.1:3306/spring_boot_biz?serverTimezone=Asia/Shanghai
     username: root
     password: 666
 

@@ -32,11 +32,11 @@ dynamicSwitch:
 
 multi-datasource:
   dataSourceBizOne:
-    url: jdbc:mysql://127.0.0.1:3306/spring_boot_biz_one?serverTimezone=UTC
+    url: jdbc:mysql://127.0.0.1:3306/spring_boot_biz_one?serverTimezone=Asia/Shanghai
     username: root
     password: 666
   dataSourceBizTwo:
-    url: jdbc:mysql://127.0.0.1:3306/spring_boot_biz_two?serverTimezone=UTC
+    url: jdbc:mysql://127.0.0.1:3306/spring_boot_biz_two?serverTimezone=Asia/Shanghai
     username: root
     password: 666
 
@@ -46,7 +46,7 @@ multi-datasource:
 spring:
   profiles: dev
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/spring_boot_core?serverTimezone=UTC
+    url: jdbc:mysql://127.0.0.1:3306/spring_boot_core?serverTimezone=Asia/Shanghai
     username: root
     password: 666
     db-name: spring_boot_core
