@@ -18,9 +18,8 @@ import java.time.LocalDateTime;
 @EqualsAndHashCode(callSuper = false)
 @Data
 public class CoreUser  extends Model {
+
     private static final long serialVersionUID = 1L;
-
-
 
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
