@@ -10,4 +10,5 @@ import com.baomidou.mybatisplus.service.IService;
  * @date 2018-03-28 16:05
  */
 public interface ITwoUserService  extends IService<TwoUser> {
+    void insertTwoUser(TwoUser twoUser);
 }

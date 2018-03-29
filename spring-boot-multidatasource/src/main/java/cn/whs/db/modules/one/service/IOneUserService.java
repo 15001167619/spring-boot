@@ -10,4 +10,7 @@ import com.baomidou.mybatisplus.service.IService;
  * @date 2018-03-28 16:03
  */
 public interface IOneUserService  extends IService<OneUser> {
+
+   void insertOneUser(OneUser user);
+
 }

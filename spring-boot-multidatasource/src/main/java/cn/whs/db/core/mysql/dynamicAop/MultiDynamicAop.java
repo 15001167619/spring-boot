@@ -33,7 +33,6 @@ public class MultiDynamicAop implements Ordered {
     private void dynamicSwitch() {
 
     }
-
     @Around("dynamicSwitch()")
     public Object around(ProceedingJoinPoint point) throws Throwable {
 
@@ -42,8 +41,7 @@ public class MultiDynamicAop implements Ordered {
         if (!(signature instanceof MethodSignature)) {
             throw new IllegalArgumentException("该注解只能用于方法");
         }
-        methodSignature = (MethodSignature) signature;
-
+       methodSignature = (MethodSignature) signature;
         Object target = point.getTarget();
         Method currentMethod = target.getClass().getMethod(methodSignature.getName(), methodSignature.getParameterTypes());
 
