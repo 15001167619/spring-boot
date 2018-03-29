@@ -1,6 +1,7 @@
-package cn.whs.db.modules.one.dao;
+package cn.whs.db.modules.dao;
 
-import cn.whs.db.modules.one.entity.OneUser;
+
+import cn.whs.db.modules.entity.CoreUser;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 
 /**
@@ -9,5 +10,5 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
  * @description
  * @date 2018-03-28 16:00
  */
-public interface OneUserMapper extends BaseMapper<OneUser> {
+public interface CoreUserMapper extends BaseMapper<CoreUser> {
 }

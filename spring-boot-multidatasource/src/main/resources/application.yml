@@ -7,8 +7,8 @@ spring:
     active: dev
 ###################  mybatis-plus配置  ###################
 mybatis-plus:
-  mapper-locations: classpath*:cn/whs/db/modules/*/dao/mappings/*.xml
-  typeAliasesPackage: cn.whs.db.modules.*.entity
+  mapper-locations: classpath*:cn/whs/db/modules/dao/mappings/*.xml
+  typeAliasesPackage: cn.whs.db.modules.entity
   global-config:
     id-type: 0  # 0:数据库ID自增   1:用户输入id  2:全局唯一id(IdWorker)  3:全局唯一ID(uuid)
     db-column-underline: false
@@ -57,7 +57,7 @@ spring:
 #####################################################################
 logging:
   level.root: info
-  level.cn.whs.jwt: debug
+  level.cn.whs.db: debug
   file: G:/mylog/spring-boot.log
 
 

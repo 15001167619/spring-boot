@@ -1,4 +1,4 @@
-package cn.whs.db.modules.core.entity;
+package cn.whs.db.modules.entity;
 
 import com.baomidou.mybatisplus.activerecord.Model;
 import com.baomidou.mybatisplus.annotations.TableId;
@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * @author 武海升
@@ -27,6 +28,7 @@ public class CoreUser  extends Model {
     private String name;
     private String mobile;
     private String password;
+    private Date insertTime;
 
     public CoreUser(){}
 
@@ -35,6 +37,7 @@ public class CoreUser  extends Model {
         this.name = name;
         this.mobile = mobile;
         this.password = password;
+        this.insertTime = new Date();
     }
 
     @Override

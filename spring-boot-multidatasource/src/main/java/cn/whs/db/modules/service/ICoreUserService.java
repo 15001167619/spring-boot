@@ -1,6 +1,7 @@
-package cn.whs.db.modules.core.service;
+package cn.whs.db.modules.service;
 
-import cn.whs.db.modules.core.entity.CoreUser;
+
+import cn.whs.db.modules.entity.CoreUser;
 import com.baomidou.mybatisplus.service.IService;
 
 /**
@@ -10,4 +11,8 @@ import com.baomidou.mybatisplus.service.IService;
  * @date 2018-03-28 16:04
  */
 public interface ICoreUserService  extends IService<CoreUser> {
+
+    void insertOneUser(CoreUser coreUser);
+    void insertTwoUser(CoreUser coreUser);
+
 }

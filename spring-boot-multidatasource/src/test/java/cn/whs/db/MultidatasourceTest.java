@@ -1,13 +1,8 @@
 package cn.whs.db;
 
 import cn.whs.db.common.CommonUtils;
-import cn.whs.db.modules.core.entity.CoreUser;
-import cn.whs.db.modules.core.service.ICoreUserService;
-import cn.whs.db.modules.one.entity.OneUser;
-import cn.whs.db.modules.one.service.IOneUserService;
-import cn.whs.db.modules.two.entity.TwoUser;
-import cn.whs.db.modules.two.service.ITwoUserService;
-import lombok.extern.slf4j.Slf4j;
+import cn.whs.db.modules.entity.CoreUser;
+import cn.whs.db.modules.service.ICoreUserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,23 +17,16 @@ import org.springframework.test.context.junit4.SpringRunner;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
-@Slf4j
 public class MultidatasourceTest {
 
     @Autowired
     private ICoreUserService coreUserService;
 
-    @Autowired
-    private IOneUserService oneUserService;
-
-    @Autowired
-    private ITwoUserService twoUserService;
 
     @Test
-    public void keyTest() {
+    public void insertTest() {
         coreUserService.insert(new CoreUser(1+(int)(Math.random()*20),"core"+ CommonUtils.getRandomString(3),CommonUtils.getRandomString(11),CommonUtils.getRandomString(6)));
-        oneUserService.insertOneUser(new OneUser(1+(int)(Math.random()*20),"one"+ CommonUtils.getRandomString(3),CommonUtils.getRandomString(11),CommonUtils.getRandomString(6)));
-        twoUserService.insertTwoUser(new TwoUser(1+(int)(Math.random()*20),"two"+ CommonUtils.getRandomString(3),CommonUtils.getRandomString(11),CommonUtils.getRandomString(6)));
+        coreUserService.insertOneUser(new CoreUser(1+(int)(Math.random()*20),"core"+ CommonUtils.getRandomString(3),CommonUtils.getRandomString(11),CommonUtils.getRandomString(6)));
+        coreUserService.insertTwoUser(new CoreUser(1+(int)(Math.random()*20),"core"+ CommonUtils.getRandomString(3),CommonUtils.getRandomString(11),CommonUtils.getRandomString(6)));
     }
-
 }
