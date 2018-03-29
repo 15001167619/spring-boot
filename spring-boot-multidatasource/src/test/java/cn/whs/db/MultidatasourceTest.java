@@ -2,6 +2,8 @@ package cn.whs.db;
 
 import cn.whs.db.common.CommonUtils;
 import cn.whs.db.modules.entity.CoreUser;
+import cn.whs.db.modules.mongo.entity.OperationLog;
+import cn.whs.db.modules.mongo.service.IOperationLogService;
 import cn.whs.db.modules.service.ICoreUserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,11 +24,15 @@ public class MultidatasourceTest {
     @Autowired
     private ICoreUserService coreUserService;
 
+    @Autowired
+    private IOperationLogService operationLogService;
+
 
     @Test
     public void insertTest() {
         coreUserService.insert(new CoreUser(1+(int)(Math.random()*20),"core"+ CommonUtils.getRandomString(3),CommonUtils.getRandomString(11),CommonUtils.getRandomString(6)));
         coreUserService.insertOneUser(new CoreUser(1+(int)(Math.random()*20),"core"+ CommonUtils.getRandomString(3),CommonUtils.getRandomString(11),CommonUtils.getRandomString(6)));
         coreUserService.insertTwoUser(new CoreUser(1+(int)(Math.random()*20),"core"+ CommonUtils.getRandomString(3),CommonUtils.getRandomString(11),CommonUtils.getRandomString(6)));
+        operationLogService.saveOperationLog(new OperationLog());
     }
 }

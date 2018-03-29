@@ -51,6 +51,9 @@ spring:
     password: 666
     db-name: spring_boot_core
     filters: log4j,wall,mergeStat
+  data:
+      mongodb:
+        uri: mongodb://whs:pwd66@localhost:27017/spring_boot
 
 #####################################################################
 ########################  写入日志  ##########################
