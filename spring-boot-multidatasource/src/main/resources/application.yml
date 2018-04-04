@@ -61,6 +61,6 @@ spring:
 logging:
   level.root: info
   level.cn.whs.db: debug
-  file: G:/mylog/spring-boot.log
+  file: G:/multi/spring-boot.log
 
 
