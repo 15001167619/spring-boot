@@ -16,7 +16,7 @@ public interface IService<T> {
 
     boolean delById(T t,String id,String collectionName);
 
-    boolean update(T t,String collectionName);
+    boolean update(String id,T t,String collectionName);
 
     List<T> findList(T t,String collectionName);
 

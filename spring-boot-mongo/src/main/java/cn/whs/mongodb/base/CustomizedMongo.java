@@ -69,12 +69,10 @@ public class CustomizedMongo<T> {
         return mongoQuery.delete();
     }
 
-    public boolean updateById(T obj,String collectionName) {
+    public boolean updateById(String id,T obj,String collectionName) {
         if(CommonUtils.isBlank(collectionName)){
             mongoQuery = new MongoQuery().use(aClass.getSimpleName());
         }else mongoQuery = new MongoQuery().use(collectionName);
-
-        String id = "11111";
         if (mongoQuery.byId(id).replace(obj) > 0) {
             return true;
         }
