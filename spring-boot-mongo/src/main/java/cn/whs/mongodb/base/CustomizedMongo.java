@@ -69,26 +69,12 @@ public class CustomizedMongo<T> {
         return mongoQuery.delete();
     }
 
-
-
-    public boolean update(T obj) {
-        mongoQuery = new MongoQuery().use(aClass.getSimpleName());
-        String id = ((MongoEntityBase)obj).getId();
-        if (mongoQuery.byId(id).replace(obj) > 0) {
-            return true;
-        }
-        return false;
-    }
-    public long update(T exist,T replaceBean) {
-        return this.getMongoQuery(exist).replace(replaceBean);
-    }
-
     public boolean updateById(T obj,String collectionName) {
         if(CommonUtils.isBlank(collectionName)){
             mongoQuery = new MongoQuery().use(aClass.getSimpleName());
         }else mongoQuery = new MongoQuery().use(collectionName);
 
-        String id = ((MongoEntityBase) obj).getId();
+        String id = "11111";
         if (mongoQuery.byId(id).replace(obj) > 0) {
             return true;
         }
@@ -99,11 +85,12 @@ public class CustomizedMongo<T> {
         if(CommonUtils.isBlank(collectionName)){
             mongoQuery = new MongoQuery().use(aClass.getSimpleName());
         }else mongoQuery = new MongoQuery().use(collectionName);
-        return (T) mongoQuery.byId(id).findOne(aClass);
+        MongoQuery mongoQuery = this.mongoQuery.byId(id);
+        return mongoQuery==null?null:(T)mongoQuery.findOne(aClass);
     }
 
     public T findOne(T obj) {
-        mongoQuery = this.getMongoQuery(obj);// 匹配查询条件
+        mongoQuery = this.getMongoQuery(obj);
         return (T) mongoQuery.findOne(aClass);
     }
 

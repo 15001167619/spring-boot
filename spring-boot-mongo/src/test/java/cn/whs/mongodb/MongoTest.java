@@ -53,11 +53,15 @@ public class MongoTest {
 
     @Test
     public void updateTest() {
+        OperationLog operationLog = operationLogService.findById(new OperationLog(), "5ac9e7f5110b471dfcc75ca6", null);
+        System.out.println(operationLog);
         OperationLog operationLog1 = new OperationLog();
-        operationLog1.setLogType("好好学习");
-        operationLog1.setLogName("天天向上");
-        operationLog1.setId("5ac9cdea110b471a4cfc27370");
-        boolean update = operationLogService.update(operationLog1, null);
+        operationLog1.setLogType("好好学习1..");
+        operationLog1.setLogName("天天向上1..");
+        operationLog1.setId("5ac9cdea110b471a4cfc2737");
+       // boolean update = operationLogService.update(operationLog1, null);
+
+
        /* OperationLog operationLog = operationLogService.findById(new OperationLog(), "5ac9cdea110b471a4cfc27370", null);
         if(operationLog!=null){
             operationLog.setLogType("好好学习");

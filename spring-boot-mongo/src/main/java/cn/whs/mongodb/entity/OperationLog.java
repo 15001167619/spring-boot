@@ -1,6 +1,6 @@
 package cn.whs.mongodb.entity;
 
-import cn.whs.mongodb.base.MongoEntityBase;
+import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 
 import java.time.Instant;
@@ -12,8 +12,10 @@ import java.time.Instant;
  * @date 2018-03-23 16:28
  */
 @Data
-public class OperationLog extends MongoEntityBase {
+public class OperationLog{
 
+    @JSONField(name = "_id")
+    protected String id;
     private String logType;
     private String logName;
     private Long createTime;
