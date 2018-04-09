@@ -35,7 +35,7 @@ public class ServiceImpl<T> implements IService<T> {
 
     @Override
     public List<T> findList(T t,String collectionName) {
-        return null;
+        return new CustomizedMongo<T>(t.getClass()).find(t,collectionName);
     }
 
     @Override

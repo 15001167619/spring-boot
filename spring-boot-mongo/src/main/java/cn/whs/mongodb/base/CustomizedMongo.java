@@ -87,25 +87,25 @@ public class CustomizedMongo<T> {
         return mongoQuery==null?null:(T)mongoQuery.findOne(aClass);
     }
 
-    public T findOne(T obj) {
-        mongoQuery = this.getMongoQuery(obj);
+    public T findOne(T obj,String collectionName) {
+        if(CommonUtils.isBlank(collectionName)){
+            mongoQuery = this.getMongoQuery(obj);
+        }else mongoQuery = this.getMongoQuery(obj,collectionName);
         return (T) mongoQuery.findOne(aClass);
     }
 
-    public List<T> findAll() {
-        mongoQuery = new MongoQuery().use(aClass.getSimpleName());
+    public List<T> findAll(String collectionName) {
+        if(CommonUtils.isBlank(collectionName)){
+            mongoQuery = new MongoQuery().use(aClass.getSimpleName());
+        }else mongoQuery = new MongoQuery().use(collectionName);
         return mongoQuery.findAll(aClass);
     }
 
-    /**
-     * 查询数据库
-     *
-     * @param obj
-     */
-    public List<T> find(T obj) {
-        mongoQuery = this.getMongoQuery(obj);//匹配查询条件
-        List<T> list = mongoQuery.find(aClass);
-        return list;
+    public List<T> find(T obj,String collectionName) {
+        if(CommonUtils.isBlank(collectionName)){
+            mongoQuery = this.getMongoQuery(obj);
+        }else mongoQuery = this.getMongoQuery(obj,collectionName);
+        return mongoQuery.find(aClass);
     }
 
 

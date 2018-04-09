@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
 /**
  * @author 武海升
  * @version 2.0
@@ -26,7 +28,7 @@ public class MongoTest {
         for (int i = 0; i < 20; i++) {
             //默认增加（通过实体类）
             operationLogService.insert(new OperationLog("LogType_"+i,"LogName_"+i),null);
-            //指定结合名称增加
+            //指定集合名称增加
             operationLogService.insert(new OperationLog("logType_"+i,"logName_"+i),"operationLogTest");
         }
     }
@@ -59,13 +61,31 @@ public class MongoTest {
         operationLog.setLogType("好好学习1..");
         System.out.println(operationLogService.update(operationLog,null));
     }
-    @Test//默认更新（通过集合名称）
+
+    @Test//指定更新（通过集合名称）
     public void updateForNameTest() {
         OperationLog operationLog = operationLogService.findById(new OperationLog(), "5ac9cdea110b471a4cfc2736", "operationLogTest");
         System.out.println(operationLog);
         operationLog.setLogName("天天向上..");
         System.out.println(operationLogService.update(operationLog, "operationLogTest"));
     }
+
+    @Test
+    public void findListTest() {
+
+        //默认实体类对应集合查询
+        List<OperationLog> list = operationLogService.findList(new OperationLog(), null);
+        list.forEach(System.out :: println);
+
+        //指定条件、集合名称查询
+        System.out.println("*********指定条件、集合名称查询**********");
+        OperationLog operationLog = new OperationLog();
+        operationLog.setLogType("logType_0");
+        List<OperationLog> operationLogTestList = operationLogService.findList(operationLog, "operationLogTest");
+        operationLogTestList.forEach(System.out :: println);
+    }
+
+
 
 
 
