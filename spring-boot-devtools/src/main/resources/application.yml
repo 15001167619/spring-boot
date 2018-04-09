@@ -1,0 +1,29 @@
+###################  项目启动端口  ###################
+server:
+  port: 6090
+###################  spring配置  ###################
+spring:
+  profiles:
+    active: dev
+
+
+---
+
+#####################################################################
+########################  开发环境profile  ##########################
+#####################################################################
+spring:
+  profiles: dev
+  data:
+    host: localhost
+    port: 27017
+    database: spring_boot
+    username: whs
+    password: pwd66
+
+spring:
+  devtools:
+  restart.additional-paths=src/main/java
+
+
+
