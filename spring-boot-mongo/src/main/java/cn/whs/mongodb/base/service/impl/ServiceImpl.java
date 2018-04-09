@@ -29,8 +29,8 @@ public class ServiceImpl<T> implements IService<T> {
     }
 
     @Override
-    public boolean update(String id,T t, String collectionName) {
-        return new CustomizedMongo<T>(t.getClass()).updateById(id,t,collectionName);
+    public boolean update(T t, String collectionName) {
+        return new CustomizedMongo<T>(t.getClass()).updateById(t,collectionName);
     }
 
     @Override

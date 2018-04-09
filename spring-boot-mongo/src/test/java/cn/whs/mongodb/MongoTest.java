@@ -38,7 +38,7 @@ public class MongoTest {
         //通过条件删除
         operationLogService.delBatch(operationLog,null);
         //通过id删除
-        operationLogService.delById(new OperationLog(),"5ac9cdea110b471a4cfc275b",null);
+        operationLogService.delById(new OperationLog(),"5acabfad110b4709f869c8f1",null);
     }
 
     @Test//通过指定集合名称删除
@@ -48,16 +48,23 @@ public class MongoTest {
         //通过条件删除
         operationLogService.delBatch(operationLog,"operationLogTest");
         //通过id删除
-        operationLogService.delById(new OperationLog(),"5ac9cdea110b471a4cfc275a","operationLogTest");
+        operationLogService.delById(new OperationLog(),"5acabfad110b4709f869c914","operationLogTest");
     }
 
-    @Test
+    @Test//默认更新（通过实体类）
     public void updateTest() {
-        OperationLog operationLog = operationLogService.findById(new OperationLog(), "5ac9e7f5110b471dfcc75ca6", null);
+        OperationLog operationLog = operationLogService.findById(new OperationLog(), "5acac603110b47205cdb6e04",null );
         System.out.println(operationLog);
+        System.out.println(operationLog.getId());
         operationLog.setLogType("好好学习1..");
-        System.out.println(operationLogService.update(operationLog.getId(),operationLog, null));
-
+        System.out.println(operationLogService.update(operationLog,null));
+    }
+    @Test//默认更新（通过集合名称）
+    public void updateForNameTest() {
+        OperationLog operationLog = operationLogService.findById(new OperationLog(), "5ac9cdea110b471a4cfc2736", "operationLogTest");
+        System.out.println(operationLog);
+        operationLog.setLogName("天天向上..");
+        System.out.println(operationLogService.update(operationLog, "operationLogTest"));
     }
 
 
