@@ -2,6 +2,7 @@ package cn.whs.mongodb.entity;
 
 import cn.whs.mongodb.base.BaseEntity;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.time.Instant;
 
@@ -12,6 +13,7 @@ import java.time.Instant;
  * @date 2018-03-23 16:28
  */
 @Data
+@EqualsAndHashCode(callSuper = false)
 public class OperationLog extends BaseEntity{
 
     private String logType;
