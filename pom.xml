@@ -30,7 +30,7 @@
         <module>spring-boot-multidatasource</module>
         <module>spring-boot-mongo</module>
         <module>spring-boot-devtool</module>
-        <module>spring-boot-batch</module>
+       <!-- <module>spring-boot-batch</module>-->
     </modules>
 
     <!--版本号 -->
@@ -39,6 +39,7 @@
         <project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <maven.plugins.version>3.7.0</maven.plugins.version>
+        <maven.surefire.version>2.21.0</maven.surefire.version>
         <spring.boot.version>2.0.0.RELEASE</spring.boot.version>
         <springloaded.version>1.2.8.RELEASE</springloaded.version>
         <devtools.version>2.0.0.RELEASE</devtools.version>
