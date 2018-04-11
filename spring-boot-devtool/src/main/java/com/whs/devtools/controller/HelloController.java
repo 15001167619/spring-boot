@@ -12,9 +12,20 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloController {
 
-    @RequestMapping("/hello")
-    public String hello() {
-        return "武海升002";
+    @RequestMapping("/say80")
+    public String hello80() {
+        return "武海升80...";
     }
+
+    @RequestMapping("/say81")
+    public String hello81() {
+        return "武海升81....";
+    }
+
+    @RequestMapping("/say82")
+    public String hello82() {
+        return "武海升82";
+    }
+
 
 }

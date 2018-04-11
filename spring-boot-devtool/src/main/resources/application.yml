@@ -1,0 +1,18 @@
+spring:
+  profiles:
+    active: beta
+---
+spring:
+  profiles: dev
+server:
+  port: 80
+---
+server:
+  port: 81
+spring:
+  profiles: beta
+---
+server:
+  port: 82
+spring:
+  profiles: product
