@@ -16,6 +16,6 @@ public class Application {
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
-        log.info("Application start-up is success!");
+        log.info("Application  Spring Boot Jwt start-up is success!");
     }
 }
