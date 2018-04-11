@@ -5,51 +5,26 @@
 
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <artifactId>spring-boot</artifactId>
+        <groupId>com.wuhaisheng</groupId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
     <artifactId>spring-boot-jwt</artifactId>
-    <groupId>com.wuhaisheng</groupId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
-
     <name>spring-boot-jwt</name>
     <description>SpringBoot 集成JWT实现接口权限认证</description>
 
-    <developers>
-        <developer>
-            <id>whs</id>
-            <name>武海升</name>
-            <email>15001167619@163.com</email>
-            <url>https://github.com/15001167619</url>
-            <timezone>8</timezone>
-        </developer>
-    </developers>
-
-    <repositories>
-        <repository>
-            <id>central</id>
-            <name>Central Repository</name>
-            <url>http://repo.maven.apache.org/maven2</url>
-            <layout>default</layout>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
-
-
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.0.RELEASE</version>
-        <relativePath/>
-    </parent>
-
-    <properties>
-        <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
-        <java.version>1.8</java.version>
-    </properties>
-
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-parent</artifactId>
+            <version>${spring.boot.version}</version>
+            <type>pom</type>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -67,7 +42,7 @@
         <dependency>
             <groupId>com.auth0</groupId>
             <artifactId>java-jwt</artifactId>
-            <version>3.3.0</version>
+            <version>${auth0.java-jwt.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -83,7 +58,7 @@
         <dependency>
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-spring</artifactId>
-            <version>1.4.0</version>
+            <version>${shiro.version}</version>
             <exclusions>
                 <exclusion>
                     <artifactId>slf4j-api</artifactId>
@@ -94,7 +69,7 @@
         <dependency>
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-ehcache</artifactId>
-            <version>1.4.0</version>
+            <version>${shiro.version}</version>
             <exclusions>
                 <exclusion>
                     <artifactId>slf4j-api</artifactId>
@@ -106,120 +81,91 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.7</version>
+            <version>${commons.version}</version>
         </dependency>
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-core</artifactId>
-            <version>2.1.9</version>
+            <version>${mybatis.plus.version}</version>
         </dependency>
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-generate</artifactId>
-            <version>2.1.9</version>
+            <version>${mybatis.plus.version}</version>
         </dependency>
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-support</artifactId>
-            <version>2.1.9</version>
+            <version>${mybatis.plus.version}</version>
         </dependency>
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatisplus-spring-boot-starter</artifactId>
-            <version>1.0.5</version>
+            <version>${mybatis.plus..starter.version}</version>
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
-            <version>1.1.9</version>
+            <version>${druid.version}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>6.0.6</version>
+            <version>${mysql.version}</version>
         </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-jdbc -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
-            <version>2.0.0.RELEASE</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/log4j/log4j -->
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
-            <version>1.2.17</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 -->
-        <!--springfox-->
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
-            <version>2.6.1</version>
+            <version>${springfox.swagger2.version}</version>
         </dependency>
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
-            <version>2.6.1</version>
+            <version>${springfox.swagger2.version}</version>
         </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.16.20</version>
             <scope>provided</scope>
         </dependency>
-
-        <!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt -->
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt</artifactId>
-            <version>0.7.0</version>
+            <version>${jjwt.version}</version>
         </dependency>
-
-        <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.46</version>
+            <version>${fastjson.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-redis</artifactId>
-            <version>1.4.7.RELEASE</version>
+            <version>${spring.boot.redis.version}</version>
         </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjrt -->
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjrt</artifactId>
-            <version>1.8.13</version>
+            <version>${aspectj.version}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
-            <version>1.8.13</version>
+            <version>${aspectj.version}</version>
         </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-mongodb -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-mongodb</artifactId>
-            <version>2.0.0.RELEASE</version>
         </dependency>
-
-
-
-
-
-
-
-
     </dependencies>
 
     <build>
@@ -227,16 +173,16 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.6.1</version>
+                <version>${maven.plugins.version}</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
                 </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.20</version>
+                <version>${maven.surefire.version}</version>
                 <configuration>
                     <systemPropertyVariables>
                         <swaggerOutputDir>${project.basedir}/src/main/resources/swagger</swaggerOutputDir>
@@ -248,7 +194,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>2.0.0.RELEASE</version>
+                <version>${spring.boot.version}</version>
                 <executions>
                 </executions>
             </plugin>
