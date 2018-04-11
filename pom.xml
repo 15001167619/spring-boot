@@ -13,12 +13,119 @@
     <description>spring-boot系统学习</description>
     <url>https://github.com/15001167619/spring-boot</url>
 
+    <developers>
+        <developer>
+            <id>whs</id>
+            <name>武海升</name>
+            <email>15001167619@163.com</email>
+            <url>https://github.com/15001167619</url>
+            <timezone>8</timezone>
+        </developer>
+    </developers>
+
+    <!-- 子模块 -->
     <modules>
         <module>spring-boot-aop</module>
         <module>spring-boot-jwt</module>
         <module>spring-boot-multidatasource</module>
         <module>spring-boot-mongo</module>
         <module>spring-boot-devtool</module>
+        <module>spring-boot-batch</module>
     </modules>
+
+    <!--版本号 -->
+    <properties>
+        <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <maven.plugins.version>3.7.0</maven.plugins.version>
+        <spring.boot.version>2.0.0.RELEASE</spring.boot.version>
+        <springloaded.version>1.2.8.RELEASE</springloaded.version>
+        <devtools.version>2.0.0.RELEASE</devtools.version>
+        <auth0.java-jwt.version>3.3.0</auth0.java-jwt.version>
+        <shiro.version>1.4.0</shiro.version>
+        <commons.version>3.7</commons.version>
+        <mybatis.plus.version>2.1.9</mybatis.plus.version>
+        <mybatis.plus..starter.version>1.0.5</mybatis.plus..starter.version>
+        <druid.version>1.1.9</druid.version>
+        <mysql.version>6.0.6</mysql.version>
+        <log4j.version>1.2.17</log4j.version>
+        <springfox.swagger2.version>2.6.1</springfox.swagger2.version>
+        <lombok.version>1.16.20</lombok.version>
+        <jjwt.version>0.7.0</jjwt.version>
+        <fastjson.version>1.2.46</fastjson.version>
+        <spring.boot.redis.version>1.4.7.RELEASE</spring.boot.redis.version>
+        <aspectj.version>1.8.13</aspectj.version>
+        <cybermkd.version>1.0.8.2</cybermkd.version>
+        <mongo.driver.version>3.6.3</mongo.driver.version>
+        <vidageek.mirror.version>1.6.1</vidageek.mirror.version>
+        <jfinal.version>3.3</jfinal.version>
+        <junit.version>4.12</junit.version>
+    </properties>
+
+    <!-- 设定主仓库-->
+    <repositories>
+        <repository>
+            <id>central</id>
+            <name>Central Repository</name>
+            <url>http://repo.maven.apache.org/maven2</url>
+            <layout>default</layout>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <!-- 设定插件仓库 -->
+    <pluginRepositories>
+        <pluginRepository>
+            <id>spring-boot-plugin</id>
+            <name>Spring Boot Repository</name>
+            <url>http://repo.maven.apache.org/maven2</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <!-- 公共依赖管理 -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+                <scope>provided</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <finalName>spring-boot</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.plugins.version}</version>
+                <configuration>
+                    <source>>${java.version}</source>
+                    <target>>${java.version}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 
 </project>
