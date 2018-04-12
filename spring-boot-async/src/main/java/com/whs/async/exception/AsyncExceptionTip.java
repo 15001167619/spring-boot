@@ -4,19 +4,18 @@ package com.whs.async.exception;
  * @author 武海升
  * @version 2.0
  * @description
- * @date 2018-04-11 17:05
+ * @date 2018-04-12 9:23
  */
-public class AsyncException extends RuntimeException  {
-
-    public AsyncException() {
+public class AsyncExceptionTip extends RuntimeException {
+    public AsyncExceptionTip() {
         super();
     }
 
-    public AsyncException(String msg) {
+    public AsyncExceptionTip(String msg) {
         super(msg);
     }
 
-    public AsyncException(int code, String msg) {
+    public AsyncExceptionTip(int code, String msg) {
         super(msg);
         this.code = code;
     }
