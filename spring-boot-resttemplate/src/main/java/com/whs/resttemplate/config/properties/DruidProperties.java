@@ -1,4 +1,4 @@
-package com.whs.batch.comfig.mysql.properties;
+package com.whs.resttemplate.config.properties;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import org.springframework.boot.context.properties.ConfigurationProperties;

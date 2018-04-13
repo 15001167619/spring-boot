@@ -1,4 +1,4 @@
-package com.whs.batch.utils;
+package com.whs.resttemplate.utils;
 
 import java.util.Random;
 
@@ -30,6 +30,9 @@ public class CommonUtils{
             return true;
         }
     }
+
+
+
     /**
      * 获取随机位数的字符串
      */
@@ -43,5 +46,6 @@ public class CommonUtils{
         }
         return sb.toString();
     }
+
 
 }
