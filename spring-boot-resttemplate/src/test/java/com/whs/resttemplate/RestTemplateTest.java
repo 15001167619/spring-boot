@@ -19,6 +19,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.function.BiFunction;
 import java.util.function.Function;
 
 /**
@@ -77,6 +78,9 @@ public class RestTemplateTest {
         };
         SysUser sysUser = sysUserFunction.apply(data);
         log.info("数据库用户"+sysUser);
+        BiFunction<SysUser,Map,SysUser> sysUserFunctiona = (user,map)->new SysUser().mapToSysUser(map,user.getClass());
+        SysUser apply = sysUserFunctiona.apply(new SysUser(), data);
+        log.info("数据库用户"+apply);
 
         //Function<Map,SysUser> sysUserFunctiona = SysUser::mapToSysUser;
     }
