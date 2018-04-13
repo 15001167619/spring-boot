@@ -31,8 +31,7 @@
         <module>spring-boot-mongo</module>
         <module>spring-boot-devtool</module>
         <module>spring-boot-async</module>
-        <module>spring-boot-batch</module>
-        <!-- <module>spring-boot-batch</module>-->
+        <module>spring-boot-rabbitmq</module>
     </modules>
 
     <parent>
