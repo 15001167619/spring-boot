@@ -3,10 +3,12 @@ package com.whs.resttemplate.modules.entity;
 import com.baomidou.mybatisplus.activerecord.Model;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.enums.IdType;
+import com.whs.resttemplate.utils.CommonUtils;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
+import java.util.Map;
 
 /**
  * @author 武海升
@@ -29,18 +31,12 @@ public class SysUser extends Model {
     private String salt;
 
 
+    public SysUser(Integer id) {
+        this.id = id;
+    }
     public SysUser() {
     }
-    public SysUser(String mobile,String name) {
-        this.mobile = mobile;
-        this.name = name;
-    }
     public SysUser(Integer age,String name) {
-        this.age = age;
-        this.name = name;
-    }
-    public SysUser(Integer id,Integer age,String name) {
-        this.id = id;
         this.age = age;
         this.name = name;
     }
@@ -65,5 +61,15 @@ public class SysUser extends Model {
                 ", mobile='" + mobile + '\'' +
                 ", password='" + password + '\'' +
                 '}';
+    }
+
+    public static SysUser mapToSysUser(Map<String, Object> map, Class<?> beanClass){
+        try {
+            return (SysUser) CommonUtils.mapToObject(map, beanClass);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+
     }
 }

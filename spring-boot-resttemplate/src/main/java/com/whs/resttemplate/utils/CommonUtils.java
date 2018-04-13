@@ -1,5 +1,8 @@
 package com.whs.resttemplate.utils;
 
+import org.apache.commons.beanutils.BeanUtils;
+
+import java.util.Map;
 import java.util.Random;
 
 /**
@@ -47,5 +50,16 @@ public class CommonUtils{
         return sb.toString();
     }
 
-
+    public static Object mapToObject(Map<String, Object> map, Class<?> beanClass){
+        if (map == null)return null;
+        Object obj = null;
+        try {
+            obj = beanClass.newInstance();
+            BeanUtils.populate(obj, map);
+            return obj;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return obj;
+        }
+    }
 }
