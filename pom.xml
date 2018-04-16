@@ -33,6 +33,7 @@
         <module>spring-boot-async</module>
         <module>spring-boot-rabbitmq</module>
         <module>spring-boot-resttemplate</module>
+        <module>spring-boot-cache</module>
     </modules>
 
     <parent>
