@@ -2,7 +2,6 @@ package com.whs.resttemplate;
 
 import com.whs.resttemplate.common.BaseResponse;
 import com.whs.resttemplate.modules.entity.SysUser;
-import com.whs.resttemplate.utils.CommonUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,7 +18,6 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.function.BiFunction;
 import java.util.function.Function;
 
 /**
@@ -67,22 +65,9 @@ public class RestTemplateTest {
         ResponseEntity<BaseResponse> responseEntity = restTemplate.exchange(requestEntity, BaseResponse.class);
         BaseResponse baseResponse = responseEntity.getBody();
         Map data = (LinkedHashMap) baseResponse.getData();
-        Function<Map,SysUser> sysUserFunction = (map)->{
-            SysUser sysUser = null;
-            try {
-                sysUser = (SysUser) CommonUtils.mapToObject(map, new SysUser().getClass());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return sysUser;
-        };
+        Function<Map,SysUser> sysUserFunction = new SysUser()::mapToSysUser;
         SysUser sysUser = sysUserFunction.apply(data);
         log.info("数据库用户"+sysUser);
-        BiFunction<SysUser,Map,SysUser> sysUserFunctiona = (user,map)->new SysUser().mapToSysUser(map,user.getClass());
-        SysUser apply = sysUserFunctiona.apply(new SysUser(), data);
-        log.info("数据库用户"+apply);
-
-        //Function<Map,SysUser> sysUserFunctiona = SysUser::mapToSysUser;
     }
 
 
