@@ -19,4 +19,5 @@ public class Application {
         log.info("Application  Spring Boot Thymeleaf start-up is success!");
     }
 
+
 }
