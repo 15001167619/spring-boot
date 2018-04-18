@@ -32,6 +32,7 @@
         <module>spring-boot-devtool</module>
         <module>spring-boot-async</module>
         <module>spring-boot-resttemplate</module>
+        <module>spring-boot-thymeleaf</module>
     </modules>
 
     <parent>
