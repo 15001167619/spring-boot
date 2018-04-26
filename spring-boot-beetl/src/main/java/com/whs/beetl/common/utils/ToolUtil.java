@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.whs.beetl.utils;
+package com.whs.beetl.common.utils;
 
 
 import java.io.IOException;

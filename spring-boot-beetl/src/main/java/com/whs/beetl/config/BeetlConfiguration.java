@@ -1,6 +1,6 @@
 package com.whs.beetl.config;
 
-import com.whs.beetl.utils.ToolUtil;
+import com.whs.beetl.common.utils.ToolUtil;
 import org.beetl.ext.spring.BeetlGroupUtilConfiguration;
 
 /**

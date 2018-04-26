@@ -16,7 +16,7 @@ public class BeetlApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(BeetlApplication.class, args);
-        log.info("GunsApplication is success!");
+        log.info("BeetlApplication is success!");
     }
 
 }

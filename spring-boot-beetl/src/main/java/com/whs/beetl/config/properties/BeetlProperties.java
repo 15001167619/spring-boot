@@ -1,6 +1,6 @@
 package com.whs.beetl.config.properties;
 
-import com.whs.beetl.utils.ToolUtil;
+import com.whs.beetl.common.utils.ToolUtil;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;

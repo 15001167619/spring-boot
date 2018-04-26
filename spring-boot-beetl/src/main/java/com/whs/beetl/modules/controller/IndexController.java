@@ -1,6 +1,7 @@
 package com.whs.beetl.modules.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -19,8 +20,9 @@ public class IndexController {
      * 跳转到首页
      */
     @RequestMapping("")
-    public String index() {
-        return "/index.html";
+    public String index(Model model) {
+        model.addAttribute("hi","Beetl Test");
+        return "index";
     }
 
 }
