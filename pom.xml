@@ -34,6 +34,7 @@
         <module>spring-boot-resttemplate</module>
         <module>spring-boot-thymeleaf</module>
         <module>spring-boot-beetl</module>
+        <module>spring-boot-validcode</module>
     </modules>
 
     <parent>
@@ -79,6 +80,7 @@
         <hamcrest.version>1.3</hamcrest.version>
         <commons-beanutils.version>1.9.3</commons-beanutils.version>
         <beetl.version>2.8.1</beetl.version>
+        <kaptcha.version>1.0.0</kaptcha.version>
     </properties>
 
     <!-- 设定主仓库-->

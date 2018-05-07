@@ -1,0 +1,48 @@
+server:
+  port: 6080
+
+kaptcha:
+  height: 50
+  width: 200
+  content:
+    length: 4
+    source: abcdefghjklmnopqrstuvwxyz23456789
+    space: 2
+  font:
+    color: black
+    name: Arial
+    size: 40
+  background-color:
+    from: lightGray
+    to: white
+  border:
+    enabled: true
+    color: black
+    thickness: 1
+
+beetl:
+  delimiter-statement-start: \@
+  delimiter-statement-end: null
+  resource-tagroot: common/tags
+  resource-tagsuffix: tag
+  resource-auto-check: true
+
+spring:
+  profiles:
+    active: dev
+  mvc:
+    static-path-pattern: /static/**
+    view:
+      prefix: /WEB-INF/view
+  http:
+    converters:
+      preferred-json-mapper: fastjson
+    multipart:
+      max-request-size: 100MB
+      max-file-size: 100MB
+
+
+---
+
+
+
