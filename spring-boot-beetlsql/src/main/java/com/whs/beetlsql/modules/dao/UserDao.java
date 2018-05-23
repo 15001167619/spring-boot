@@ -1,9 +1,12 @@
 package com.whs.beetlsql.modules.dao;
 
+import com.whs.beetlsql.common.Parameters;
 import com.whs.beetlsql.modules.entity.User;
 import org.beetl.sql.core.annotatoin.SqlStatement;
 import org.beetl.sql.core.mapper.BaseMapper;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * @author 武海升
@@ -32,4 +35,12 @@ public interface UserDao  extends BaseMapper<User> {
     @SqlStatement(params = "id")
     User findById(Long id);
 
+    /**
+     * 查询用户分页列表
+     *
+     * @param params 分页参数
+     * @return 用户分页列表
+     */
+    @SqlStatement(params = "params")
+    List<User> selectPageList(Parameters params);
 }

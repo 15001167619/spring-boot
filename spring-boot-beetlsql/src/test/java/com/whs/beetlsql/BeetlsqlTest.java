@@ -1,5 +1,6 @@
 package com.whs.beetlsql;
 
+import com.whs.beetlsql.common.Parameters;
 import com.whs.beetlsql.modules.entity.User;
 import com.whs.beetlsql.modules.service.IUserService;
 import com.whs.beetlsql.utils.ToolUtil;
@@ -29,18 +30,22 @@ public class BeetlsqlTest {
         User user = new User(ToolUtil.getRandomString(3),ToolUtil.getRandomString(3));
         userService.addUser(user);
         log.info("新增用户ID："+user.getId().toString());
-        log.info("新增用户ID："+user.getId().toString());
     }
     @Test
     public void testSelectData() {
         User user;
         log.info("********通过用户ID userId 查询用户*********");
-        user = userService.findById(7L);
+        user = userService.findById(1L);
         if(user!=null)log.info("通过用户ID查询用户："+user.toString());
         user = null;
         log.info("********通过用户名 userName 查询用户*********");
         user = userService.findByName("4q8");
         if(user!=null)log.info("通过用户名称查询用户："+user.toString());
+    }
+    @Test
+    public void testSelectListData() {
+        userService.userPageList(new Parameters()).stream()
+                .forEach(System.out ::println);
     }
 
 

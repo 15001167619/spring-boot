@@ -5,6 +5,7 @@ import lombok.EqualsAndHashCode;
 import org.beetl.sql.core.TailBean;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * @author 武海升
@@ -20,6 +21,7 @@ public class User  extends TailBean implements Serializable {
     private Long id;
     private String mobile;
     private String userName;
+    private Date createTime = new Date();
 
     public User(String userName,String mobile){
         this.userName = userName;

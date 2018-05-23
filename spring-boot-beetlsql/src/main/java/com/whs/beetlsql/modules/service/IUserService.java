@@ -1,6 +1,9 @@
 package com.whs.beetlsql.modules.service;
 
+import com.whs.beetlsql.common.Parameters;
 import com.whs.beetlsql.modules.entity.User;
+
+import java.util.List;
 
 /**
  * @author 武海升
@@ -39,6 +42,14 @@ public interface IUserService {
      * @return 用户信息
      */
     User findById(Long userId);
+
+    /**
+     * 查询用户分页列表
+     *
+     * @param params 分页参数
+     * @return 用户分页列表
+     */
+    List<User> userPageList(Parameters params);
 
     /**
      * 根据Id删除用户

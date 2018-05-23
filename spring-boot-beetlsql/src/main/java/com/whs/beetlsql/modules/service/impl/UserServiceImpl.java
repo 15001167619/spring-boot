@@ -1,11 +1,13 @@
 package com.whs.beetlsql.modules.service.impl;
 
+import com.whs.beetlsql.common.Parameters;
 import com.whs.beetlsql.modules.dao.UserDao;
 import com.whs.beetlsql.modules.entity.User;
 import com.whs.beetlsql.modules.service.IUserService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author 武海升
@@ -39,6 +41,11 @@ public class UserServiceImpl implements IUserService {
     public User findById(Long id) {
         User user = userDao.findById(id);
         return user==null?null:user;
+    }
+
+    @Override
+    public List<User> userPageList(Parameters params) {
+        return userDao.selectPageList(params);
     }
 
     @Override
