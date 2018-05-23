@@ -1,0 +1,37 @@
+##########################################################
+##################  所有profile共有的配置  #################
+##########################################################
+###################  项目启动端口  ###################
+server:
+  port: 6080
+
+
+###################  spring配置  ###################
+spring:
+  profiles:
+    active: dev
+  mvc:
+    static-path-pattern: /static/**
+    view:
+      prefix: /WEB-INF/view
+  http:
+    converters:
+      preferred-json-mapper: fastjson
+    multipart:
+      max-request-size: 100MB #最大请求大小
+      max-file-size: 100MB #最大文件大小
+
+
+---
+
+spring:
+  profiles: dev
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/spring_boot?serverTimezone=Asia/Shanghai
+    username: root
+    password: 666
+    filter: stat,wall
+    initialSize: 5
+    minIdle: 1
+    maxActive: 30
+

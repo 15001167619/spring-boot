@@ -35,6 +35,7 @@
         <module>spring-boot-thymeleaf</module>
         <module>spring-boot-beetl</module>
         <module>spring-boot-validcode</module>
+        <module>spring-boot-beetlsql</module>
     </modules>
 
     <parent>
@@ -80,6 +81,7 @@
         <hamcrest.version>1.3</hamcrest.version>
         <commons-beanutils.version>1.9.3</commons-beanutils.version>
         <beetl.version>2.8.1</beetl.version>
+        <beetlsql.version>2.8.14</beetlsql.version>
         <kaptcha.version>1.0.0</kaptcha.version>
     </properties>
 
