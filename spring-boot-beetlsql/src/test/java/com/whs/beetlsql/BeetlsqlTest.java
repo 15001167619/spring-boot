@@ -41,11 +41,17 @@ public class BeetlsqlTest {
         log.info("********通过用户名 userName 查询用户*********");
         user = userService.findByName("4q8");
         if(user!=null)log.info("通过用户名称查询用户："+user.toString());
-    }
-    @Test
-    public void testSelectListData() {
+        log.info("******** 获取分页List *********");
         userService.userPageList(new Parameters()).stream()
                 .forEach(System.out ::println);
+    }
+    @Test
+    public void testUpdateData() {
+        userService.updateUser(new User(1L,"userName","mobile"));
+    }
+    @Test
+    public void testDeleteData() {
+        userService.deleteById(4L);
     }
 
 
