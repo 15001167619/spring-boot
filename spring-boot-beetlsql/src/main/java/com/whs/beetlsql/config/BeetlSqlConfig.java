@@ -25,7 +25,7 @@ import javax.sql.DataSource;
 public class BeetlSqlConfig {
 
     @Bean(name = "beetlSqlScannerConfigurer")
-    public BeetlSqlScannerConfigurer getBeetlSqlScannerConfigurer() {
+    public static BeetlSqlScannerConfigurer getBeetlSqlScannerConfigurer() {
         BeetlSqlScannerConfigurer conf = new BeetlSqlScannerConfigurer();
         conf.setBasePackage("com.whs.beetlsql.modules");//扫描那些类可以自动注入
         conf.setSqlManagerFactoryBeanName("sqlManagerFactoryBean");
