@@ -38,30 +38,4 @@ public class DruidConfiguration {
         dataSource.setMaxActive(druidProperty.getMaxActive());
         return dataSource;
     }
-
-   /* @Bean
-    public ServletRegistrationBean DruidStatViewServlet() {
-        ServletRegistrationBean servletRegistrationBean =
-                new ServletRegistrationBean(
-                        new StatViewServlet(), "/druid*//*");
-        //白名单
-        servletRegistrationBean.addInitParameter("allow", "127.0.0.1");
-        ////ip黑名单
-        //servletRegistrationBean.addInitParameter("deny", "192.168.20.161");
-        servletRegistrationBean.addInitParameter("loginUsername", "druid");
-        servletRegistrationBean.addInitParameter("loginPassword", "druid");
-        //是否能够重置数据.
-        servletRegistrationBean.addInitParameter("resetEnable", "false");
-        return servletRegistrationBean;
-    }*/
-
- /*   @Bean
-    public FilterRegistrationBean druidStatFilter() {
-        FilterRegistrationBean filterRegistrationBean =
-                new FilterRegistrationBean(new WebStatFilter());
-        filterRegistrationBean.addUrlPatterns("*//*");
-        filterRegistrationBean.addInitParameter("exclusions", "*.js,*.gif,*.jpg,*.png,*.css,*.html,*.md,*.ico,/druid2*//*");
-        return filterRegistrationBean;
-    }*/
-
 }
