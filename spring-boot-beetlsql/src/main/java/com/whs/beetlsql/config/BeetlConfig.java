@@ -40,7 +40,6 @@ public class BeetlConfig {
         beetlSpringViewResolver.setConfig(beetlConfiguration());
         beetlSpringViewResolver.setContentType("text/html;charset=UTF-8");
         beetlSpringViewResolver.setOrder(0);
-        beetlSpringViewResolver.setPrefix("/");//模版前缀
         beetlSpringViewResolver.setSuffix(".html");//模版后缀
         return beetlSpringViewResolver;
     }
