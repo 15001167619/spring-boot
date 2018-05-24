@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * @author 武海升
@@ -35,9 +36,9 @@ public class UserController {
     }
 
     @RequestMapping(value = "addUser")
-    public String addUser(String userName,String mobile) {
+    @ResponseBody
+    public Boolean addUser(String userName,String mobile) {
         userService.addUser(new User(userName,mobile));
-        return "redirect:/user/list";
+        return true;
     }
-
 }

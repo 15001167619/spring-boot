@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>addUser</title>
-    <script src="${ctxPath}/static/js/jquery.min.js"/>
+    <script src="${ctxPath}/static/js/jquery.min.js"></script>
 </head>
 <body>
 <h1>添加用户</h1>
@@ -19,21 +19,21 @@
     function addUser() {
         var userName = $('#userName').val();
         var mobile = $('#mobile').val();
-        $
-            .ajax({
-                url : "<c:url value='/user/addUser'/>",
-                type : "POST",
-                async : false,
-                data : {
-                    userName : "userName",
-                    mobile : "mobile"
-                },
-                success : function(data) {
-                    window.location.href = "/a/project/bgProject/allProject?isPromote=0&hot=hot"
+        $.ajax({
+            url: 'addUser',
+            type: 'POST',
+            data : {
+                userName : userName,
+                mobile : mobile
+            },
+            success: function (resunlt) {
+                debugger;
+                if(resunlt==true){
+                    window.location.href = "list"
                 }
-            });
+            }
+        });
     }
 </script>
-
 </body>
 </html>
