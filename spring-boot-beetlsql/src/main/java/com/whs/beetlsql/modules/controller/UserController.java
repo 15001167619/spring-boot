@@ -1,5 +1,9 @@
 package com.whs.beetlsql.modules.controller;
 
+import com.whs.beetlsql.common.Parameters;
+import com.whs.beetlsql.modules.entity.User;
+import com.whs.beetlsql.modules.service.IUserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,13 +18,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping(value = "user")
 public class UserController {
 
-    /**
-     * 跳转到首页
-     */
+    @Autowired
+    private IUserService userService;
+
     @RequestMapping(value = "list")
-    public String index(Model model) {
-        model.addAttribute("hi","Beetl Test");
+    public String userListForm(Model model) {
+        Parameters parameters = new Parameters();
+        parameters.setLimit(Integer.MAX_VALUE);
+        model.addAttribute("userList",userService.userPageList(parameters));
         return "modules/userList";
+    }
+
+    @RequestMapping(value = "addUserForm")
+    public String addUserForm() {
+        return "modules/userAdd";
+    }
+
+    @RequestMapping(value = "addUser")
+    public String addUser(String userName,String mobile) {
+        userService.addUser(new User(userName,mobile));
+        return "redirect:/user/list";
     }
 
 }

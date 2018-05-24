@@ -18,7 +18,7 @@ public class IndexController {
      */
     @RequestMapping("")
     public String index(Model model) {
-        model.addAttribute("hi","Beetl Test");
+        model.addAttribute("hi","Beetlsql User首页测试!");
         return "index";
     }
 

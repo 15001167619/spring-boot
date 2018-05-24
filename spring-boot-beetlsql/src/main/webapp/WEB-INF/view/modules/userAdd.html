@@ -2,9 +2,38 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>addUser</title>
+    <script src="${ctxPath}/static/js/jquery.min.js"/>
 </head>
 <body>
+<h1>添加用户</h1>
+<form id="editForm">
+    <input type="text" id="userName" name="userName"  placeholder="用户名" style="width: 150px;height: 25px"/>
+    <input type="text" id="mobile" name="mobile"  placeholder="手机号" style="width: 150px;height: 25px"/>
+
+    <input id="btnSubmit" onclick="addUser('submitSave')"  type="button" value="添加用户"/>
+</form>
+<br/>
+<input  type="button" value="返 回" onclick="history.go(-1)"/>
+<script>
+    function addUser() {
+        var userName = $('#userName').val();
+        var mobile = $('#mobile').val();
+        $
+            .ajax({
+                url : "<c:url value='/user/addUser'/>",
+                type : "POST",
+                async : false,
+                data : {
+                    userName : "userName",
+                    mobile : "mobile"
+                },
+                success : function(data) {
+                    window.location.href = "/a/project/bgProject/allProject?isPromote=0&hot=hot"
+                }
+            });
+    }
+</script>
 
 </body>
 </html>
