@@ -23,6 +23,11 @@ public class User  extends TailBean implements Serializable {
     private String userName;
     private Date createTime = new Date();
 
+    public User(Long userId,String userName,String mobile){
+        this.id = userId;
+        this.userName = userName;
+        this.mobile = mobile;
+    }
     public User(String userName,String mobile){
         this.userName = userName;
         this.mobile = mobile;
