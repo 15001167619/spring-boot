@@ -58,7 +58,7 @@
         <auth0.java-jwt.version>3.3.0</auth0.java-jwt.version>
         <shiro.version>1.4.0</shiro.version>
         <commons.version>3.7</commons.version>
-        <mybatis.plus.version>2.1.9</mybatis.plus.version>
+        <mybatis.plus.version>2.3</mybatis.plus.version>
         <mybatis.plus..starter.version>1.0.5</mybatis.plus..starter.version>
         <druid.version>1.1.9</druid.version>
         <mysql.version>6.0.6</mysql.version>
