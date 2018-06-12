@@ -1,0 +1,18 @@
+server:
+  port: 6080
+
+spring:
+  profiles:
+    active: dev
+  thymeleaf:
+      mode: HTML
+      cache: false
+  mvc:
+    view:
+      prefix: /templates
+
+log:
+  exclude: core,log
+
+
+

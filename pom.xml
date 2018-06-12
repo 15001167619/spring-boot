@@ -37,6 +37,7 @@
         <module>spring-boot-validcode</module>
         <module>spring-boot-beetlsql</module>
         <module>spring-boot-mybatis</module>
+        <module>spring-boot-shiro</module>
     </modules>
 
     <parent>
